@@ -1,0 +1,24 @@
+﻿@model IndexViewModel
+
+<div class="paginas">
+
+    @if (Model.PageNumber > 1)
+    {
+        string previous = "<";
+        string first = "<=";
+        <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="1">@first</a>
+        <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@(Model.PageNumber - 1)">@previous</a>
+    }
+    @foreach (var p in Model.Pages)
+    {
+        <a class="@(p == Model.PageNumber ? "active" : "")" asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@p">@p</a>
+    }
+
+    @if (Model.NextPage)
+    {
+        string next = ">";
+        string last = ">=";
+        <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@(Model.PageNumber + 1)">@next</a>
+        <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@(Model.PageCount)">@last</a>
+    }
+</div>

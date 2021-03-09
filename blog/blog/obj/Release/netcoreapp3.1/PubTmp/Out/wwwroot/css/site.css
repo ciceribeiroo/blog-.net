@@ -1,0 +1,68 @@
+﻿body{
+    margin:0;
+    background-color: lightgray !important;
+}
+a{
+    color: white !important;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+nav{
+    background-color: #142127;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+nav a{
+    display: inline-block;
+    height: 100%;
+    padding: 15px
+}
+.main-image {
+    position: relative;
+    height: 500px;
+    background-image: url('../content/static/pexels-christina-morillo-1181406 (1).jpg');
+    background-position: center;
+    background-size: cover;
+}
+.title{
+    position: absolute;
+    color: white;
+    text-shadow: 0 0 8px black;
+    font-weight: bold;
+    font-size: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35%;
+}
+.my-container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+.post{
+    position: relative;
+    display: flex;
+    object-fit: cover;
+    height: 500px;
+}
+.post img{
+    width: 100%;
+}
+.post-body{
+    margin: -5px 5px 0;
+    background-color: white;
+    padding: 20px 5px;
+    border-bottom-left-radius: -5px;
+    border-bottom-right-radius: -5px;
+}
+.trumbowyg-box, .trumbowyg-editor {
+    background-color: white !important;
+    max-width: 1200px;
+    min-height: 400px !important;
+}
+.edit{
+    margin: 20px 20px 20px 20px;
+}

@@ -1,0 +1,41 @@
+﻿@model RegisterViewModel
+
+@{
+
+}
+
+<style>
+    .sign-in-form {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .sign-in-form div {
+            max-width: 200px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+</style>
+<form class="sign-in-form" asp-controller="Auth" asp-action="Register" method="post">
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"> </span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" />        
+        <span asp-validation-for="Password"> </span>
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        <input asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"> </span>
+    </div>
+    <div>
+        <input type="submit" value="Sign Un" />
+    </div>
+</form>
