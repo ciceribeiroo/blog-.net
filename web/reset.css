@@ -1,0 +1,23 @@
+:root{ font: 20px/1.2 "Roboto", sans-serif}
+
+@media (max-width: 8.5in)
+{ 
+    :root 
+    { 
+        font-size: 18px;
+    }
+}
+
+body, body *
+{
+    margin: unset;
+    box-sizing: unset;
+    padding: unset;
+    font-size: unset;
+    color: unset;
+    text-decoration: unset;
+}
+
+figure *{
+    display: block;
+}

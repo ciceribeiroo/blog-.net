@@ -5,51 +5,82 @@
     ViewBag.Description = "hello word";
     ViewBag.Keywords = "blog programming travel photography";
 }
-<style>
-    .paginas {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin: 2rem;
-    }
 
-        .paginas a {
-            padding: 1rem;
-            background-color: #aaa;
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 0.75rem;
-        }
-        .paginas a:hover {
-            background-color: #999;
-            text-decoration: none;
-        }
-    .pesquisa {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-</style>
+<div class="conteudo">
+    <div class="capa">
+        <figure class="size-4">
+            <img src="~/content/static/capa2.jpg"/>
+            <span class="titulo-blog">aqui vai um título criativo</span>
+        </figure>
+    </div>
+    <article>
+        <div class="meio">
+            <form asp-controller="Home" asp-action="Index" method="get">
+                <input type="hidden" name="pageNumber" value="@Model.PageNumber" />
+                <input type="hidden" name="category" value="@Model.Category" />
+                <div style="width: 100%"><input class="pesquisa" type="text" name="search" value="@Model.Search" placeholder="Pesquisar..." /></div>
+                <!-- <button type="hidden" class="submit-btn">Search</button> -->
+            </form>
+            <select class="categoria">
+                <option value="" selected disabled hidden>Categorias...</option>
 
-<div class="main-image">
-    <span class="title">Amazing Blog Site</span>
-    <form asp-controller="Home" asp-action="Index" method="get">
-        <input type="hidden" name="pageNumber" value="@Model.PageNumber"/>
-        <input type="hidden" name="category" value="@Model.Category"/>
-        <div style="width: 100%"><input class="pesquisa" type="text" name="search" value="@Model.Search" placeholder="Search" /></div>
-        <button class="submit-btn">Search</button>
-    </form>
+                <option value="Programming" asp-controller="Home" asp-action="Index" asp-route-category="Programming">Programming</option>
+                <option value="Travel" asp-controller="Home" asp-action="Index" asp-route-category="Travel">Travel</option>
+                <option value="Photography" asp-controller="Home" asp-action="Index" asp-route-category="Photography">Photography</option>
+            </select>
+        </div>
+        <div class="post">
+            @{ var posts = Model.Posts.ToArray(); }
+            @if (Model.Posts.Count() % 2 == 0)
+            {
+                @for (int i = 0; i < Model.Posts.Count(); i += 2)
+                {
+                    var img_path1 = $"/Image/{posts[i].Image}";
+                    var img_path2 = $"/Image/{posts[i + 1].Image}";
+                    <div class="row">
+                        <div class="column">
+                            <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i].id">
+                                <img src="@img_path1" class="cut-img"/>
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i + 1].id">
+                                <img src="@img_path2" class="cut-img"/>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                @for (int i = 0; i < Model.Posts.Count() - 1; i += 2)
+                {
+                    var img_path1 = $"/Image/{posts[i].Image}";
+                    var img_path2 = $"/Image/{posts[i + 1].Image}";
+                    <div class="row">
+                        <div class="column">
+                            <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i].id">
+                                <img src="@img_path1" class="cut-img"/>
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i + 1].id">
+                                <img src="@img_path2" class="cut-img"/>
+                            </a>
+                        </div>
+                    </div>
+                }
+                var img_path = $"/Image/{posts[Model.Posts.Count() - 1].Image}";
+                <div class="row">
+                    <div class="column">
+                        <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[Model.Posts.Count()-1].id">
+                            <img src="@img_path" class="cut-img"/>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </article>
+        <partial name="_BlogPagination" model="Model" />
 </div>
-<div class="my-container">
-    @foreach (var post in Model.Posts)
-    {
-        var img_path = $"/Image/{post.Image}";
-        <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.id">
-            <img src="@img_path" />
-            <span class="title">@post.Title</span>
-        </a>
-
-    }
-    <partial name="_BlogPagination" model="Model" />
-</div>
+<partial name="_NavBar" />

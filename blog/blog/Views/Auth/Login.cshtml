@@ -4,21 +4,8 @@
 
 }
 
-<style>
-    .sign-in-form {
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .sign-in-form div{
-        max-width: 200px;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-</style>
-<form class="sign-in-form" asp-controller="Auth" asp-action="Login" method="post">
+
+<form style="margin-top: 3rem" class="sign-in-form" asp-controller="Auth" asp-action="Login" method="post">
     <div>
         <label>Username</label>
         <input asp-for="UserName" />

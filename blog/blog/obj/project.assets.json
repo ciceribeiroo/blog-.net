@@ -5873,11 +5873,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\blog\\blog\\blog.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\blog\\blog-.net\\blog\\blog\\blog.csproj",
       "projectName": "blog",
-      "projectPath": "C:\\Users\\Usuario\\source\\repos\\blog\\blog\\blog.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\blog\\blog-.net\\blog\\blog\\blog.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\source\\repos\\blog\\blog\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Documents\\blog\\blog-.net\\blog\\blog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

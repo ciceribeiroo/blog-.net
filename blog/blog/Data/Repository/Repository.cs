@@ -32,7 +32,7 @@ namespace blog.Data.Repository
         public IndexViewModel GetAllPosts(int pageNumber, string Category, string search)
         {
             Func<Post, bool> InCategory = (post) => { return post.Category.ToLower().Equals(Category.ToLower()); };
-            int pageSize = 2;
+            int pageSize = 4;
             int skipAmount = pageSize * (pageNumber - 1);
             var query = _ctx.Posts.ToList();
 

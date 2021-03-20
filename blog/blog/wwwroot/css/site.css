@@ -1,54 +1,4 @@
-﻿body{
-    margin:0;
-    background-color: lightgray !important;
-}
-a{
-    color: white !important;
-    text-decoration: none;
-}
-a:hover{
-    text-decoration: underline;
-}
-nav{
-    background-color: #142127;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-}
-nav a{
-    display: inline-block;
-    height: 100%;
-    padding: 15px
-}
-.main-image {
-    position: relative;
-    height: 500px;
-    background-image: url('../content/static/pexels-christina-morillo-1181406 (1).jpg');
-    background-position: center;
-    background-size: cover;
-}
-.title{
-    position: absolute;
-    color: white;
-    text-shadow: 0 0 8px black;
-    font-weight: bold;
-    font-size: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 35%;
-}
-.my-container {
-    max-width: 800px;
-    width: 100%;
-    margin: auto;
-}
-.post{
-    position: relative;
-    display: flex;
-    object-fit: cover;
-    height: 500px;
-}
-.post img{
+﻿.post img{
     width: 100%;
 }
 .post-body{
@@ -65,4 +15,49 @@ nav a{
 }
 .edit{
     margin: 20px 20px 20px 20px;
+}
+.sign-in-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .sign-in-form div {
+        max-width: 200px;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+.paginas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem;
+}
+
+    .paginas a {
+        padding: 1rem;
+        background-color: #aaa;
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+        align-items: center;
+    }
+
+        .paginas a:hover {
+            background-color: #999;
+            text-decoration: none;
+        }
+    .paginas i {
+        padding: 1rem;
+        font-size: 1rem;
+        color: white;
+        margin:0rem;
+    }
+.pesquisa {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 }

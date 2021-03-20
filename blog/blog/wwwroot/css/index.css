@@ -1,9 +1,0 @@
-﻿.submit-btn {
-    display: none;
-}
-
-@media screen and (max-widht: 768px) {
-    .submit-btn {
-        display: none;
-    }
-}

@@ -1,0 +1,80 @@
+body{
+    font-family: 'Lato', sans-serif;
+}
+.titulo{
+    margin-top: 3rem;
+    font-family: 'Rozha One', serif;
+    color: rgb(14, 14, 14);
+    font-size: 3rem;
+}
+.sub-titulo{
+    margin-top: 1rem;
+    color: rgb(14, 14, 14);
+}
+.data{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: hsl(0, 0%, 71%);
+    text-transform: uppercase;
+}
+.texto{
+    font: 1rem/1.5 "Lato";
+    font-size: 1rem/1.5;
+}
+.legenda{
+    font: 0.9rem/1.2 ;
+    color: hsl(0, 0%, 71%);
+}
+.contato{
+    margin: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+}
+.contato-texto{
+    margin-left: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+}
+.contato-texto a:hover{
+    font-weight: bold;
+}
+.nome{
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    text-align: right;
+}
+.coment-titulo{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Rozha One', serif;
+}
+.footer-titulo{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+    font-family: 'Rozha One', serif;
+}
+.titulo-blog{
+    position: absolute;
+    font: 4rem 'Rozha One';
+    left: 10%;
+    top: 45%;
+    max-width: 700px;
+}
+.main-coment{
+    margin-bottom: 1rem;
+}
+.sub-coment{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px){
+    .footer-titulo{
+        font-size: 1.9rem;
+    }
+}
