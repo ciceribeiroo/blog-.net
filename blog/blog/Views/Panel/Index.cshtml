@@ -2,28 +2,14 @@
 
 @{
 }
+<div class="panel">
+    <div>
+        <a class="sublinhado" asp-controller="Panel" asp-action="Edit">
+            Adicionar Novo Post
+        </a>
+    </div>
 
-<h2>Admin Panel</h2>
+    <h2 style="margin: 1rem 0rem;">Gerenciar Posts</h2>
 
-<a asp-controller="Panel" asp-action="Edit">
-    Add New Post
-</a>
-
-<div>
-    <ul>
-        @foreach (var post in Model)
-        {
-            <li>
-                @post.Title
-                -
-                <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.id">
-                    Edit
-                </a>
-                -
-                <a asp-controller="Panel" asp-action="Remove" asp-route-id="@post.id">
-                    Remove
-                </a>
-            </li>
-        }
-    </ul>
+    <partial name="_PostsList" model="Model" />
 </div>

@@ -21,13 +21,14 @@
                 <div style="width: 100%"><input class="pesquisa" type="text" name="search" value="@Model.Search" placeholder="Pesquisar..." /></div>
                 <!-- <button type="hidden" class="submit-btn">Search</button> -->
             </form>
-            <select class="categoria">
+            <form asp-controller="Home" asp-action="Index" method="get">
+            <select>
                 <option value="" selected disabled hidden>Categorias...</option>
-
-                <option value="Programming" asp-controller="Home" asp-action="Index" asp-route-category="Programming">Programming</option>
-                <option value="Travel" asp-controller="Home" asp-action="Index" asp-route-category="Travel">Travel</option>
-                <option value="Photography" asp-controller="Home" asp-action="Index" asp-route-category="Photography">Photography</option>
+                <option value="Travel" asp-controller="Home" asp-action="Index" asp-route-category="Travel">Viagem</option>
+                <option value="Programming" asp-controller="Home" asp-action="Index" asp-route-category="Programming">Programação</option>
+                <option value="Photography" asp-controller="Home" asp-action="Index" asp-route-category="Photography">Fotografia</option>
             </select>
+            </form>
         </div>
         <div class="post">
             @{ var posts = Model.Posts.ToArray(); }
@@ -41,11 +42,15 @@
                         <div class="column">
                             <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i].id">
                                 <img src="@img_path1" class="cut-img"/>
+                                <h2 class="titulo-post">@posts[i].Title</h2>
+                                <p>#@posts[i].Category.ToLower()</p>
                             </a>
                         </div>
                         <div class="column">
                             <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i + 1].id">
-                                <img src="@img_path2" class="cut-img"/>
+                                <img src="@img_path2" class="cut-img" />
+                                <h2 class="titulo-post">@posts[i + 1].Title</h2>
+                                <p>#@posts[i+1].Category.ToLower()</p>
                             </a>
                         </div>
                     </div>
@@ -60,12 +65,16 @@
                     <div class="row">
                         <div class="column">
                             <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i].id">
-                                <img src="@img_path1" class="cut-img"/>
+                                <img src="@img_path1" class="cut-img" />
+                                <h2 class="titulo-post">@posts[i].Title</h2>
+                                <p>#@posts[i].Category.ToLower()</p>
                             </a>
                         </div>
                         <div class="column">
                             <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[i + 1].id">
-                                <img src="@img_path2" class="cut-img"/>
+                                <img src="@img_path2" class="cut-img" />
+                                <h2 class="titulo-post">@posts[i + 1].Title</h2>
+                                <p>#@posts[i+1].Category.ToLower()</p>
                             </a>
                         </div>
                     </div>
@@ -74,7 +83,9 @@
                 <div class="row">
                     <div class="column">
                         <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@posts[Model.Posts.Count()-1].id">
-                            <img src="@img_path" class="cut-img"/>
+                            <img src="@img_path" class="cut-img" />
+                            <h2 class="titulo-post">@posts[Model.Posts.Count() - 1].Title</h2>
+                            <p>#@posts[Model.Posts.Count() - 1].Category.ToLower()</p>
                         </a>
                     </div>
                 </div>

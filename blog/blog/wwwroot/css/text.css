@@ -1,4 +1,11 @@
-body{
+.registrar{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.registrar a:hover {
+    text-decoration: underline;
+}
+body {
     font-family: 'Lato', sans-serif;
 }
 .titulo{
@@ -77,4 +84,21 @@ body{
     .footer-titulo{
         font-size: 1.9rem;
     }
+}
+.sublinhado{
+    text-decoration: underline;
+}
+.titulo-post {
+    font: 1.5rem 'Rozha One';
+    position: absolute;
+    transform: translateY(-170%);
+    color: white;
+    margin-left: 1rem;
+}
+.post p {
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    transform: translateY(-165%);
+    margin-left: 1rem;
 }

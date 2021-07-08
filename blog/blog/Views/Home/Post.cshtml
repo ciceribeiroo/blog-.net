@@ -5,7 +5,6 @@
     ViewBag.Keywords = $"{Model.Tags?.Replace(",", " ")} {Model.Category}";
     var data = Model.Created.ToString("d MMMM, yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
 }
-
 <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
 </div>
@@ -22,9 +21,12 @@
         <figure class="size-4">
             <img src="@img_path" />
         </figure>
-        <figcaption>
-            <div class="legenda"><p>legenda da imagem</p></div>
-        </figcaption>
+        if (!String.IsNullOrEmpty(Model.Legend))
+        {
+            <figcaption>
+                <div class="legenda"><p>@Model.Legend</p></div>
+            </figcaption>
+        }
     }
     <article class="texto">
         <p>
@@ -33,9 +35,9 @@
             </div>
         </p>
         <div class="redes-sociais">
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-instagram-square"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=#"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://api.whatsapp.com/send?text="><i class="fab fa-whatsapp-square"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=#"><i class="fab fa-linkedin"></i></a>
         </div>
 
         <div class="coment-titulo">Comentários</div>
@@ -47,19 +49,21 @@
                 }
                 @foreach (var c in Model.MainComments)
                 {
-                    <p class="main-coment">
-                        @c.Message ----- @c.Created
-                    </p>
-                    <div style="margin-left: 30px !important">
-                        @{
-                            await Html.RenderPartialAsync("_MainComment", new CommentViewModel { Postid = Model.id, MainCommentId = c.Id });
-                        }
-                        @foreach (var sc in c.SubComments)
-                        {
-                            <p sub-coment>
-                                @sc.Message ----- @sc.Created
-                            </p>
-                        }
+                    <div style="margin-bottom: 2rem">
+                        <p class="main-coment">
+                            @c.Message ----- @c.Created
+                        </p>
+                        <div style="margin-left: 30px !important">
+                            @{
+                                await Html.RenderPartialAsync("_MainComment", new CommentViewModel { Postid = Model.id, MainCommentId = c.Id });
+                            }
+                            @foreach (var sc in c.SubComments)
+                            {
+                                <p sub-coment>
+                                    @sc.Message ----- @sc.Created
+                                </p>
+                            }
+                        </div>
                     </div>
 
                 }
@@ -68,7 +72,7 @@
         else
         {
             <div>
-                <a asp-action="Login" asp-controller="Auth">Sign In</a> to comment
+                <a class="sublinhado" asp-action="Login" asp-controller="Auth">Entre na sua conta</a> para comentar
             </div>
         }
 

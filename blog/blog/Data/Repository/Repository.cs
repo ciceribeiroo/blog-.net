@@ -26,7 +26,7 @@ namespace blog.Data.Repository
 
         public List<Post> GetAllPosts()
         {
-            return _ctx.Posts.ToList();
+            return _ctx.Posts.OrderByDescending(post => post.Created).ToList();
         }
 
         public IndexViewModel GetAllPosts(int pageNumber, string Category, string search)
@@ -34,7 +34,7 @@ namespace blog.Data.Repository
             Func<Post, bool> InCategory = (post) => { return post.Category.ToLower().Equals(Category.ToLower()); };
             int pageSize = 4;
             int skipAmount = pageSize * (pageNumber - 1);
-            var query = _ctx.Posts.ToList();
+            var query = _ctx.Posts.OrderByDescending(post => post.Created).ToList();
 
             if (!String.IsNullOrEmpty(Category))
             {

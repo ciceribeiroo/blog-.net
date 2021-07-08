@@ -37,6 +37,7 @@ nav{
     letter-spacing: 0.2rem;
     font-size: 18px;
     text-transform: uppercase;
+    font-weight: normal;
 }
 .nav-links a:hover{
     font-weight: bold;

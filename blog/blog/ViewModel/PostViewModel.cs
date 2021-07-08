@@ -17,6 +17,7 @@ namespace blog.ViewModel
         public string Tags { get; set; } = "";
         public string Category { get; set; } = "";
         public IFormFile Image { get; set; } = null;
+        public string Legend { get; set; } = "";
 
     }
 }

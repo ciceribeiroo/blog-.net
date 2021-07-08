@@ -47,8 +47,9 @@ namespace blog.Controllers
                     CurrentImage = post.Image,
                     Description = post.Description,
                     Category = post.Category,
-                    Tags = post.Tags
-                });
+                    Tags = post.Tags,
+                    Legend = post.Legend
+                }) ;
                 return result;
             }
         }
@@ -62,7 +63,8 @@ namespace blog.Controllers
                 id = vm.id,
                 Description = vm.Description,
                 Category = vm.Category,
-                Tags = vm.Tags
+                Tags = vm.Tags,
+                Legend = vm.Legend
             };
             if (vm.Image == null)
                 post.Image = vm.CurrentImage;

@@ -4,12 +4,19 @@
 
     @if (Model.PageNumber > 1)
     {
-    <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="1"><i class="fas fa-angle-double-left"></i></a>
+        <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="1"><i class="fas fa-angle-double-left"></i></a>
         <a asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@(Model.PageNumber - 1)"><i class="fas fa-angle-left"></i></a>
     }
     @foreach (var p in Model.Pages)
     {
-        <a class="@(p == Model.PageNumber ? "active" : "")" asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@p">@p</a>
+        if (p == Model.PageNumber)
+        {
+            <a class="@(p == Model.PageNumber ? "active" : "")" style="color: #313131" asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@p">@p</a>
+        }
+        else
+        {
+            <a class="@(p == Model.PageNumber ? "active" : "")" asp-action="Index" asp-controller="Home" asp-route-category="@Model.Category" asp-route-search="@Model.Search" asp-route-pageNumber="@p">@p</a>
+        }
     }
 
     @if (Model.NextPage)

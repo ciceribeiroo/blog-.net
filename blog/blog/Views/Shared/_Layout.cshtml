@@ -11,6 +11,7 @@
     <link href="~/css/--debug.css" rel="stylesheet" />
     <link href="~/css/home.css" rel="stylesheet" />
     <link href="~/css/img.css" rel="stylesheet" />
+    <link href="~/css/modal.css" rel="stylesheet" />
     <link href="~/css/navbar.css" rel="stylesheet" />
     <link href="~/css/progress-bar.css" rel="stylesheet" />
     <link href="~/css/reset.css" rel="stylesheet" />
@@ -20,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/7ed9007b85.js" crossorigin="anonymous"></script>
+    <link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -33,7 +35,6 @@
                 {
                     if (User.IsInRole("admin"))
                     {
-                        <li><a asp-controller="Panel" asp-action="Edit">Create Post</a></li>
                         <li><a asp-controller="Panel" asp-action="Index">Admin Panel</a></li>
                     }
                     <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>

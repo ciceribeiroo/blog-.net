@@ -7,59 +7,48 @@
     <form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
         <input asp-for="id" type="hidden" />
         <div>
-            <label>Title</label>
-            <input asp-for="Title" />
+            <div class="column2"> <label>Título</label></div>
+            <div class="column3 campo"> <input style="width:80%" asp-for="Title" /></div>
         </div>
         <div>
-            <label>Category</label>
-            <select asp-for="Category">
-                <option value="Travel">Travel</option>
-                <option value="Programming">Programming</option>
-                <option value="Photography">Photography</option>
-            </select>
+            <div class="column2"><label>Categoria</label></div>
+            <div class="column3 campo">
+                <select asp-for="Category" style="width:80%" >
+                    <option value="Travel">Viagem</option>
+                    <option value="Programming">Programação</option>
+                    <option value="Photography">Fotografia</option>
+                </select>
+            </div>
         </div>
         <div>
-            <label>Tags</label>
-            <input asp-for="Tags" />
+            <div class="column2"><label>Tags</label></div>
+            <div class="column3 campo"><input style="width:80%" asp-for="Tags" /></div>
         </div>
         <div>
-            <label>Description</label>
-            <input asp-for="Description" />
+            <div class="column2"><label>Resumo</label></div>
+            <div class="column3 campo"><input style="width:80%" asp-for="Description" /></div>
         </div>
         <div>
-            <label>Body</label>
-            <textarea id="editor" asp-for="Body"></textarea>
+            <div class="column4"><textarea id="editor" asp-for="Body"></textarea></div>
         </div>
         <div>
-            <label>Image</label>
+            <div class="column2"><label>Imagem</label></div>
             <input asp-for="CurrentImage" type="hidden" />
-            <input asp-for="Image" class="forupload democlass" onchange="myFunction()" />
+            <div class="column3 campo"><input style="width:80%" asp-for="Image" /></div>
         </div>
-        <input type="submit" value="Submit" />
+        <div>
+            <div class="column2"><label>Legenda</label></div>
+            <div class="column3 campo"><input style="width:80%" asp-for="Legend" /></div>
+        </div>
+        <div class="column4"><input class="botao" type="submit" value="Enviar" /></div>
     </form>
 </div>
 @section scripts{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/lib/Trumbowyg-master/dist/trumbowyg.js"></script>
     <script>
-        $('#editor').trumbowyg();
-    </script>
-    <style>
-        .democlass {
-            /*width:100px;*/
-            color: transparent;
-        }
-    </style>
-    <script>
-        function myFunction() {
-            var input = document.getElementById("updateImage");
-            var files = input.files;
-            if (files.length > 0) {
-                input.removeAttribute("class", "democlass");
-            } else {
-                input.setAttribute("class", "democlass");
-            }
-
-        }
+        $('#editor').trumbowyg({
+            lang: 'pt-br'
+        });
     </script>
 }

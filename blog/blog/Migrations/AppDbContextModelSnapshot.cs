@@ -283,6 +283,9 @@ namespace blog.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Legend")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Tags")
                         .HasColumnType("nvarchar(max)");
 
